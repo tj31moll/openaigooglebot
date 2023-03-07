@@ -1,5 +1,6 @@
 import telegram
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler, MessageHandler
+#, Filters
 import google.auth.credentials
 import google.auth.transport.grpc
 import google.auth.transport.requests
@@ -10,9 +11,11 @@ from google.assistant.embedded.v1alpha2 import (
 import openai
 
 # Set up the Telegram bot
-bot = telegram.Bot(token="your_token_here")
-updater = Updater(token="your_token_here", use_context=True)
-dispatcher = updater.dispatcher
+#bot = telegram.Bot(token="your_token_here")
+#updater = Updater(token="your_token_here", use_context=True)
+#dispatcher = updater.dispatcher
+# Set up the Telegram bot
+
 
 # Set up the Google Assistant
 assistant_creds = google.auth.credentials.Credentials.from_authorized_user_file(
