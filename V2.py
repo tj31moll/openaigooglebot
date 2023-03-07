@@ -1,5 +1,6 @@
 import os
-import dialogflow_v2 as dialogflow
+import google.cloud.dialogflow_v2 as dialogflow
+#import dialogflow_v2 as dialogflow
 from telegram import Bot
 from google.oauth2.credentials import Credentials
 from google.assistant.embedded.v1alpha2 import embedded_assistant_pb2
