@@ -82,7 +82,6 @@ def enable_openai(update, context):
     response_text = "OpenAI enabled. From now on, I'll use it to generate my responses."
     context.bot.send_message(chat_id=update.effective_chat.id, text=response_text)
 
-
 # Define the command handler for disabling OpenAI
 def disable_openai(update, context):
     context.user_data["use_openai"] = False
