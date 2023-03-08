@@ -20,14 +20,16 @@ api_endpoint = 'embeddedassistant.googleapis.com'
 grpc_deadline = 60 * 3 + 5
 
 # Set up the Google Assistant credentials
+#credentials = None
 credentials = None
 if os.path.isfile('credentials.json'):
     with open('credentials.json', 'r') as f:
         credentials_info = json.load(f)
-            credentials = google.auth.credentials.Credentials.from_authorized_user_info(
-                credentials_info,
-                google.auth.transport.requests.Request()
-            )
+        credentials = google.auth.credentials.Credentials.from_authorized_user_info(
+            credentials_info,
+            google.auth.transport.requests.Request()
+        )
+
 else:
     logging.error('Credentials file not found')
 
