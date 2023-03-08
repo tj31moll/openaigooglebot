@@ -1,5 +1,5 @@
 import telegram
-from telegram.ext import Updater, MessageHandler, Filters
+from telegram.ext import Updater, MessageHandler, filters
 import custom_words
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
