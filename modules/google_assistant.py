@@ -28,7 +28,7 @@ if os.path.isfile('credentials.json'):
 else:
     logging.error('Credentials file not found')
 
-# Set up the Google Assistant config
+## Set up the Google Assistant config
 #config = embedded_assistant_pb2.AssistConfig(
 #    audio_out_config=embedded_assistant_pb2.AudioOutConfig(),
 #    dialog_state_in=embedded_assistant_pb2.DialogStateIn(
