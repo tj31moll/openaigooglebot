@@ -3,7 +3,8 @@ import grpc
 from google.auth.transport.grpc import secure_authorized_channel
 from google.assistant.embedded.v1alpha2 import (
     embedded_assistant_pb2,
-    embedded_assistant_pb2_grpc
+    embedded_assistant_pb2_grpc,
+    query_input_pb2
 )
 import logging
 
@@ -46,9 +47,9 @@ config = embedded_assistant_pb2.AssistConfig(
     audio_out_config=embedded_assistant_pb2.AudioOutConfig(encoding='LINEAR16', sample_rate_hertz=16000, volume_percentage=0),
     dialog_state_in=embedded_assistant_pb2.DialogStateIn(language_code='en-US'),
     device_config=embedded_assistant_pb2.DeviceConfig(device_id=device_id, device_model_id=device_model_id),
-    text_query_config=embedded_assistant_pb2.QueryInput(
+    text_query_config=query_input_pb2.QueryInput(
         text=embedded_assistant_pb2.TextInput(
-            text='', language_code='en-US'
+            text=text_query, language_code='en-US'
         )
     )
 )
