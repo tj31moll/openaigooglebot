@@ -47,12 +47,12 @@ config = embedded_assistant_pb2.AssistConfig(
     audio_out_config=embedded_assistant_pb2.AudioOutConfig(encoding='LINEAR16', sample_rate_hertz=16000, volume_percentage=0),
     dialog_state_in=embedded_assistant_pb2.DialogStateIn(language_code='en-US'),
     device_config=embedded_assistant_pb2.DeviceConfig(device_id=device_id, device_model_id=device_model_id),
-    text_query_config=query_input_pb2.QueryInput(
-        text=embedded_assistant_pb2.TextInput(
-            text=text_query, language_code='en-US'
-        )
+#    text_query_config=query_input_pb2.QueryInput(
+#        text=embedded_assistant_pb2.TextInput(
+#            text=text_query, language_code='en-US'
+#        )
     )
-)
+#)
 
 # Define a function to handle user input and pass it to the Google Assistant for processing
 def handle_user_input(text, assistant):
