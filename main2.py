@@ -42,6 +42,6 @@ def handle_user_message(update, context):
 # Set up Telegram bot and start polling for user messages
 updater = Updater(bot_token, update_queue=None)
 dispatcher = updater.dispatcher
-dispatcher.add_handler(MessageHandler(Filters.text, handle_user_message))
+dispatcher.add_handler(MessageHandler(filters.text, handle_user_message))
 updater.start_polling()
 updater.idle()
