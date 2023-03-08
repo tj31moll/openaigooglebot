@@ -1,8 +1,8 @@
 import telegram
 from telegram.ext import Updater, MessageHandler, Filters
 import custom_words
+from openai_integration import get_chatbot_response
 from google_assistant import get_assistant_response
-import openai_integration
 
 # Set up Telegram bot token
 bot_token = "YOUR_BOT_TOKEN"
@@ -27,8 +27,8 @@ def handle_user_message(update, context):
         # Send the Google Assistant response back to the user
         update.message.reply_text(response)
     else:
-        # The user does not want to use the Google Assistant API, generate a response using OpenAI's API
-        response = openai_integration.get_openai_response(text)
+        # The user does not want to use the Google Assistant API, generate a response using GPT-3
+        response = get_chatbot_response(text)
 
         # Send the chatbot response back to the user
         update.message.reply_text(response)
