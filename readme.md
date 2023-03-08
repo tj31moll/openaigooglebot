@@ -2,3 +2,5 @@ sudo apt-get update && sudo apt-get install -y python3.9 git libsndfile1 libasou
 sudo apt install software-properties-common
 sudo apt install python3.7
 sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get install python3-distutils
+sudo apt-get install python3-apt
