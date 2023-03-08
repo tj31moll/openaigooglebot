@@ -10,6 +10,13 @@ import logging
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 
+# Set up the Google Assistant config
+language_code = 'en-US'
+device_id = 'your-device-id'
+device_model_id = 'your-device-model-id'
+api_endpoint = 'embeddedassistant.googleapis.com'
+grpc_deadline = 60 * 3 + 5
+
 # Set up the Google Assistant credentials
 credentials = None
 if os.path.isfile('credentials.json'):
