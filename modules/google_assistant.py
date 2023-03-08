@@ -48,7 +48,7 @@ config = embedded_assistant_pb2.AssistConfig(
     device_config=embedded_assistant_pb2.DeviceConfig(device_id=device_id, device_model_id=device_model_id),
     text_query_config=embedded_assistant_pb2.QueryInput(
         text=embedded_assistant_pb2.TextInput(
-            text=text_query, language_code='en-US'
+            text='', language_code='en-US'
         )
     )
 )
@@ -58,6 +58,7 @@ def handle_user_input(text, assistant):
     if text.startswith("ask google "):
         # Remove the "ask google" prefix and send the rest of the text to the Google Assistant
         query = text[11:]
+        config.text_query_config.text.query = query
         response_text = assistant.Assist(
             embedded_assistant_pb2.AssistRequest(
                 text_query=query
