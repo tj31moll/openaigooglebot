@@ -2,4 +2,4 @@ sudo apt-get update && sudo apt-get install -y python3 python3-pip python3-venv 
 pip install google-assistant-sdk[samples]
 pip install python-telegram-bot
 pip install grpcio
-
+pip install chatterbot
