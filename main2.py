@@ -1,5 +1,6 @@
+import time
 import telegram
-from telegram.ext import Updater, MessageHandler, filters
+from telegram.ext import Updater, MessageHandler, filters, Application
 import custom_words
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
@@ -40,8 +41,17 @@ def handle_user_message(update, context):
         update.message.reply_text(response)
 
 # Set up Telegram bot and start polling for user messages
+#updater = Updater(bot_token, update_queue=None)
+#dispatcher = updater.dispatcher
+#dispatcher.add_handler(MessageHandler(filters.text, handle_user_message))
+#updater.start_polling()
+#updater.idle()
 updater = Updater(bot_token, update_queue=None)
-dispatcher = updater.dispatcher
-dispatcher.add_handler(MessageHandler(filters.text, handle_user_message))
+#dispatcher = updater.dispatcher
+application.add_handler(MessageHandler(filters.Text, handle_user_message))
 updater.start_polling()
-updater.idle()
+
+# Keep the program running until the user presses Ctrl-C to stop it
+#updater.start_polling()
+while True:
+    time.sleep(1)
