@@ -12,7 +12,13 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
 logger = logging.getLogger(__name__)
-
+# Initialize the chatbot
+chatbot = ChatBot("MyBot")
+#chatbot.set_trainer(ChatterBotCorpusTrainer)
+#chatbot.train("chatterbot.corpus.english.greetings")
+trainer = ChatterBotCorpusTrainer(chatbot)
+trainer.train("chatterbot.corpus.english.greetings",
+              "chatterbot.corpus.english.conversations")
 # Initialize the OpenAI API
 openai.api_key = "YOUR_API_KEY"
 
@@ -28,10 +34,7 @@ def help_command(update: telegram.Update, context: CallbackContext) -> None:
     """Send a message when the command /help is issued."""
     update.message.reply_text("Help!")
 
-# Initialize the chatbot
-chatbot = ChatBot("MyBot")
-chatbot.set_trainer(ChatterBotCorpusTrainer)
-chatbot.train("chatterbot.corpus.english.greetings")
+
 
 def get_openai_response(user_input):
     """Call OpenAI API and get the response"""
@@ -56,7 +59,7 @@ def echo(update: telegram.Update, context: CallbackContext) -> None:
     else:
         # Pass the user input to ChatterBot
         response = chatbot.get_response(user_input)
-        # Generate a response from the bot
+        # Generate a response from the 
         response_str = str(response)
 
     # Send the response back to the user
