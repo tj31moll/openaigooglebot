@@ -51,8 +51,10 @@ def echo(update: telegram.Update, context: CallbackContext) -> None:
     """Echo the user message."""
     user_input = update.message.text
     # Check if the user input is in the custom words
-    if user_input.lower() in custom_words.words:
-        response = custom_words.words[user_input.lower()]
+    #if user_input.lower() in custom_words.words:
+        #response = custom_words.words[user_input.lower()]
+    if custom_words.handle_custom_words(text):
+        return    
     elif user_input.lower() == "ask openai":
         # Get the response from OpenAI API
         response = get_openai_response(user_input)
