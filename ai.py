@@ -31,7 +31,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Create a new chat bot named 'EchoBot'
-chatbot = ChatBot('EchoBot')
+chatbot = ChatBot('MolloyBot')
 
 # Create a new trainer for the chatbot
 trainer = ChatterBotCorpusTrainer(chatbot)
@@ -80,21 +80,21 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
     await update.message.reply_text(response)
 
-
 def main() -> None:
     """Start the bot."""
-    # Create the Updater and pass it your bot's token.
-    updater = Updater("YOUR_BOT_TOKEN")
-
-    # Get the dispatcher to register handlers
-    dispatcher = updater.dispatcher
+    # Create the Application and pass it your bot's token.
+    application = Application.builder().token("TOKEN").build()
 
     # on different commands - answer in Telegram
-    dispatcher.add_handler(CommandHandler("start", start))
-    dispatcher.add_handler(CommandHandler("help", help_command))
+    application.add_handler(CommandHandler("start", start))
+    application.add_handler(CommandHandler("help", help_command))
 
-    # on noncommand i.e message - echo the message on Telegram
-    dispatcher.add_handler(MessageHandler(filters=text_filter, callback=echo))
+    # on non command i.e message - echo the message on Telegram
+    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
 
-    # Start the Bot
-    updater.start_polling
+    # Run the bot until the user presses Ctrl-C
+    application.run_polling()
+
+
+if __name__ == "__main__":
+    main()
