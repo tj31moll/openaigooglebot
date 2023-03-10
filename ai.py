@@ -29,15 +29,12 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
 logger = logging.getLogger(__name__)
-
-# Create a new chat bot named 'EchoBot'
+trainer = ChatterBotCorpusTrainer(chatbot)
+trainer.train("chatterbot.corpus.english.greetings",
+              "chatterbot.corpus.english.conversations")
+openai.api_key = "YOUR_API_KEY"
 chatbot = ChatBot('MolloyBot')
 
-# Create a new trainer for the chatbot
-trainer = ChatterBotCorpusTrainer(chatbot)
-
-# Load the english corpus
-trainer.train("chatterbot.corpus.english")
 
 # Define a few command handlers. These usually take the two arguments update and
 # context.
