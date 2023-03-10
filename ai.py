@@ -4,7 +4,7 @@ import time
 import telegram
 import openai
 import custom_words
-
+from custom_words import handle_custom_words
 from telegram import __version__ as TG_VER, ForceReply, Update
 from telegram.ext import Updater, MessageHandler, filters, Application, CommandHandler, ContextTypes, filters, Application
 
