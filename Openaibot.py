@@ -2,7 +2,7 @@ import logging
 import time
 import telegram
 import openai
-from telegram.ext import Updater, CommandHandler, MessageHandler, filters, CallbackContext
+from telegram.ext import Updater, CommandHandler, MessageHandler, filters, CallbackContext, Application
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 import custom_words
